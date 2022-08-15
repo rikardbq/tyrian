@@ -10,10 +10,10 @@ import * as utils from "../utils"
 
 export default function (): void {
   console.log("Checking prerequisites...\n")
-  if (!check("node", ["-v"]) || !check("npm", ["-v"]) || !check("gradle", ["-v"])) {
-    console.error(chalk.red("You should add node, npm and gradle in `PATH` env."))
-    process.exit(ErrorCode.BROKEN_ENV)
-  }
+  // if (!check("node", ["-v"]) || !check("npm", ["-v"]) || !check("gradle", ["-v"])) {
+  //   console.error(chalk.red("You should add node, npm and gradle in `PATH` env."))
+  //   process.exit(ErrorCode.BROKEN_ENV)
+  // }
 
   if (fs.existsSync(PATH.PACKAGE)) {
     console.error(chalk.yellow(PATH.PACKAGE + " already exists."))

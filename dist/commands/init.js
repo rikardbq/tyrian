@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -33,10 +37,10 @@ const constants_1 = require("../constants");
 const utils = __importStar(require("../utils"));
 function default_1() {
     console.log("Checking prerequisites...\n");
-    if (!check("node", ["-v"]) || !check("npm", ["-v"]) || !check("gradle", ["-v"])) {
-        console.error(chalk_1.default.red("You should add node, npm and gradle in `PATH` env."));
-        process.exit(errors_1.code.BROKEN_ENV);
-    }
+    // if (!check("node", ["-v"]) || !check("npm", ["-v"]) || !check("gradle", ["-v"])) {
+    //   console.error(chalk.red("You should add node, npm and gradle in `PATH` env."))
+    //   process.exit(ErrorCode.BROKEN_ENV)
+    // }
     if (fs_1.default.existsSync(constants_1.path.PACKAGE)) {
         console.error(chalk_1.default.yellow(constants_1.path.PACKAGE + " already exists."));
         process.exit(errors_1.code.INIT_CONFLICT);
